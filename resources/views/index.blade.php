@@ -30,6 +30,8 @@ $polyfills = [
 </head>
 <body>
   <div id="app"></div>
+  <router-view name="companiesIndex"></router-view>
+  <router-view></router-view>
 
   {{-- Global configuration object --}}
   <script>window.config = @json($config);</script>

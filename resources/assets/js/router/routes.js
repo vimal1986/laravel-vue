@@ -9,6 +9,11 @@ const Settings = () => import('~/pages/settings/index')
 const SettingsProfile = () => import('~/pages/settings/profile')
 const SettingsPassword = () => import('~/pages/settings/password')
 
+import CurrencyIndex from './components/currency/CurrencyIndex.vue';
+import CurrencyCreate from './components/currency/CurrencyCreate.vue';
+import CurrencyEdit from './components/currency/CurrencyEdit.vue';
+import CurrencyConversion from './components/currency/CurrencyConversion.vue';
+
 export default [
   { path: '/', name: 'welcome', component: Welcome },
 
@@ -23,6 +28,15 @@ export default [
     { path: 'profile', name: 'settings.profile', component: SettingsProfile },
     { path: 'password', name: 'settings.password', component: SettingsPassword }
   ] },
+    {
+        path: 'admin/currency',
+        components: {
+            companiesIndex: CurrencyIndex
+        }
+    },
+    {path: '/admin/currency/create', component: CurrencyCreate, name: 'createCurrency'},
+    {path: '/admin/currency/edit/:id', component: CurrencyEdit, name: 'editCurrency'},
+    {path: '/currency-conversion', component: CurrencyConversion, name: 'currencyConversion'},
 
   { path: '*', component: require('~/pages/errors/404') }
 ]
